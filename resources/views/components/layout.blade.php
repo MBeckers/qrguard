@@ -16,8 +16,8 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         {{ $slot }}
-        @stack('scripts')
         @livewireScripts
+        @stack('scripts')
         @vite('resources/js/app.js')
     </body>
 </html>

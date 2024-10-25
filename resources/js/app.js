@@ -17,6 +17,9 @@ Alpine.directive('scanner', (el, { value }, { effect, cleanup }) => {
                     console.log('QR Code detected:', result);
 
                     outputElem.textContent = result;  // Display the result
+
+                    const event = new CustomEvent('qr-code-scanned', { detail: { result } });
+                    window.dispatchEvent(event);  // Dispatch the event globally
                 });
 
                 qrScanner.start();
