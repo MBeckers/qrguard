@@ -14,11 +14,7 @@ Alpine.directive('scanner', (el, { value }, { effect, cleanup }) => {
                 videoElem.srcObject = stream;
 
                 qrScanner = new QrScanner(videoElem, result => {
-                    console.log('QR Code detected:', result);
-
-                    outputElem.textContent = result;  // Display the result
-
-                    const event = new CustomEvent('qr-code-scanned', { detail: { result } });
+                    const event = new CustomEvent('qr-code-scanned', { detail: { url: result } });
                     window.dispatchEvent(event);  // Dispatch the event globally
                 });
 

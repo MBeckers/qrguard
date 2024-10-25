@@ -3,7 +3,6 @@
         QR Code Scanner
     </x-slot>
 
-    <livewire:qr-scanner-component />
 
     <div x-data x-scanner class="container text-center">
         <h1>QR Code Scanner</h1>
@@ -14,13 +13,7 @@
         </div>
 
         <!-- Scanned QR Code Result -->
-        <div class="mt-3">
-            <h2>Scanned QR Code:</h2>
-            <p class="output">
-            No QR code detected yet.
-            </p>
-        </div>
-
+        <livewire:qr-scanner-component />
 
     </div>
 </x-layout>
