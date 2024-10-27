@@ -1,10 +1,14 @@
 <div>
     <!-- This is the Livewire component -->
     <h2>Scanned QR Code URL</h2>
-    <p>{{ $qrCodeUrl }}</p>
+    @if($qrCodeUrl)
+        <a href="{{$qrCodeUrl}}" >{{ $qrCodeUrl }}</a>
+    @endif
+
     @if($qrCountry)
         <p> Country: {{ $qrCountry }}</p>
     @endif
+
     @if($qrCompany)
         <p> Company: {{ $qrCompany }}</p>
     @endif

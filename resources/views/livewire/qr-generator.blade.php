@@ -1,4 +1,4 @@
-<div class="m-y">
+<div class="my-auto">
     <label for="url">Url:</label>
     <input
         class="border-2 rounded p-2"
@@ -32,7 +32,7 @@
     >
         Generate Url
     </button>
-<p>{{$signedUrl}}</p>
+    <p>{{$signedUrl}}</p>
     <div class="pt-10 w-screen">
         <img class="w-96 mx-auto" src="{{ $qrCode }}">
     </div>
