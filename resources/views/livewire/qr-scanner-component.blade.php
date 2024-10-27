@@ -2,6 +2,18 @@
     <!-- This is the Livewire component -->
     <h2>Scanned QR Code URL</h2>
     <p>{{ $qrCodeUrl }}</p>
+    @if($qrCountry)
+        <p> Country: {{ $qrCountry }}</p>
+    @endif
+    @if($qrCompany)
+        <p> Company: {{ $qrCompany }}</p>
+    @endif
+
+    @if($isValid)
+        Check
+    @else
+        Invalid
+    @endif
 </div>
 @push('scripts')
     @script
