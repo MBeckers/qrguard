@@ -32,7 +32,7 @@
     >
         Generate Url
     </button>
-    <p>{{$signedUrl}}</p>
+    
     <div class="pt-10 w-screen">
         <img class="w-96 mx-auto" src="{{ $qrCode }}">
     </div>
