@@ -10,8 +10,8 @@ class GenerateSignedUrl
 {
     public function __invoke(string $url, array $params = []): string
     {
-        $privateKey = $this->getPrivateKey():
-        $privateKey = Storage::get('private.key');
+        $privateKey = $this->getPrivateKey();
+        
         $params = URL::formatParameters($params);
         if (!empty($params)) {
             $url = $url . (Str::contains($url, '?') ? '&' : '?') . http_build_query($params);
