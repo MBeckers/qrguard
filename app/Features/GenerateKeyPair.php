@@ -28,6 +28,5 @@ class GenerateKeyPair
 
         Storage::put('private.key', $privateKey);
         Storage::put('public.key', $publicKey);
-
     }
 }

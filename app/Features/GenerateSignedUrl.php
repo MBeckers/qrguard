@@ -10,6 +10,7 @@ class GenerateSignedUrl
 {
     public function __invoke(string $url, array $params = []): string
     {
+        $privateKey = $this->getPrivateKey():
         $privateKey = Storage::get('private.key');
         $params = URL::formatParameters($params);
         if (!empty($params)) {
@@ -20,9 +21,20 @@ class GenerateSignedUrl
         $encodedSignature = base64_encode($signature);
 
         $params = URL::formatParameters(['signature' => $encodedSignature]);
-        
+
         return $url
             . (Str::contains($url, '?') ? '&' : '?')
             . http_build_query($params);
     }
+
+    protected function getPrivateKey(): string
+    {
+        if ($privateKey = Storage::get('private.key')) {
+            return $privateKey;
+        }
+        resolve(GenerateKeyPair::class)();
+
+        return Storage::get('private.key');
+    }
+
 }
