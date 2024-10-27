@@ -13,9 +13,8 @@ it('generates a signed url', function () {
     $signedUrl = $generateSignedUrl($url);
     $publicKey = Storage::get('public.key');
 
-
     $queryString = parse_url($signedUrl, PHP_URL_QUERY);
-    $receivedSignature = Str::before(Str::after($queryString, 'signature='), '&');
+    $receivedSignature = rawurldecode(Str::before(Str::after($queryString, 'signature='), '&'));
 
     expect($url != $signedUrl)->toBe(true);
 

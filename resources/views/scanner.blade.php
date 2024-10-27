@@ -4,7 +4,7 @@
     </x-slot>
 
 
-    <div x-data x-scanner class="container text-center">
+    <div x-data x-scanner class="container text-center w-96 mx-auto">
         <h1>QR Code Scanner</h1>
 
         <!-- Camera Video Feed -->
@@ -14,6 +14,5 @@
 
         <!-- Scanned QR Code Result -->
         <livewire:qr-scanner-component />
-
     </div>
 </x-layout>
