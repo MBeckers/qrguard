@@ -21,7 +21,7 @@ class QrGenerator extends Component
             $this->url,
             ['qrCountry' => $this->country, 'qrCompany' => $this->company]
         );
-        $this->qrCode = $QRCode->render('https://speekly.de&qrCountry=de&qrCompany=Speekly+GmbH&signature=MEUCIC7G6l9ADST2');
+        $this->qrCode = $QRCode->render($this->signedUrl);
     }
 
     public function render()
