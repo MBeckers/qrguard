@@ -4,15 +4,9 @@ namespace App\Livewire;
 
 use App\Features\ValidatedSignedUrl;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use const OPENSSL_ALGO_SHA256;
-use const PHP_URL_HOST;
-use const PHP_URL_PATH;
-use const PHP_URL_QUERY;
-use const PHP_URL_SCHEME;
 
 class QrScannerComponent extends Component
 {
@@ -44,6 +38,16 @@ class QrScannerComponent extends Component
         $this->qrCountry = '';
         $this->qrCompany = '';
         $this->baseDomain = '';
+    }
+
+    public function simulateInvalid()
+    {
+        $this->processQrCode('https://speekly.de');
+    }
+    public function simulateValid()
+    {
+        $this->processQrCode('https://speekly.de?qrCountry=de&qrCompany=Speekly+GmbH&signature=MEUCIQCeQF%2FmHULkRvHTvgRqorntw1C1DVDQ1DlUoDy0VE7I7AIgYVDIO3C9%2FdrhZ3wiu7jexxELKgrU%2FIyfX%2Fxe4uY8uWw%3D
+ ');
     }
 
     protected function extractUrl(string $url): string

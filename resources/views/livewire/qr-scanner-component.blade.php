@@ -1,4 +1,8 @@
 <div>
+    @if(app()->environment('local'))
+        <button wire:click="simulateInvalid">simulateInvalid</button>
+        <button wire:click="simulateValid">simulateValid</button>
+    @endif
     @if($qrCodeUrl)
         <x-scanner-result
             :valid="$isValid"

@@ -7,10 +7,12 @@
     'logo' => 'https://www.w3schools.com/images/w3schools_green.jpg'
 ])
 <div class="absolute flex justify-start items-center w-full bottom-32 left-0 h-20">
+    <div class="border w-screen absolute left-4 z-1">
+    </div>
     <div
         @class([
-            'flex justify-start items-center mx-auto w-60 min-h-20 bg-white rounded-xl shadow gap-6 p-6',
-            'text-black' => $valid,
+            'z-10 flex justify-start items-center mx-auto w-grow min-h-20 rounded-xl shadow gap-6 p-6',
+            'text-black bg-white' => $valid,
             'bg-invalid text-white' => !$valid,
         ])
     >
