@@ -1,22 +1,12 @@
 <div>
-    <!-- This is the Livewire component -->
-    <h2>Scanned QR Code URL</h2>
     @if($qrCodeUrl)
-        <a href="{{$qrCodeUrl}}" >{{ $qrCodeUrl }}</a>
-    @endif
-
-    @if($qrCountry)
-        <p> Country: {{ $qrCountry }}</p>
-    @endif
-
-    @if($qrCompany)
-        <p> Company: {{ $qrCompany }}</p>
-    @endif
-
-    @if($isValid)
-        Check
-    @else
-        Invalid
+        <x-scanner-result
+            :valid="$isValid"
+            :domain="$baseDomain"
+            :link="$qrCodeUrl"
+            :company="$qrCompany"
+            :origin="$qrCountry"
+        />
     @endif
 </div>
 @push('scripts')

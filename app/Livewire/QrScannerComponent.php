@@ -19,11 +19,13 @@ class QrScannerComponent extends Component
     public string $qrCodeUrl = '';
     public string $qrCountry = '';
     public string $qrCompany = '';
+    public string $baseDomain = '';
     public bool $isValid = false;
 
     #[On('processQrCode')]
     public function processQrCode($url)
     {
+        $url = Str::startsWith($url, 'http') ? $url : 'https://' . $url;
         $this->qrCodeUrl = $this->extractUrl($url);
 
         $parsedUrl = parse_url($url, PHP_URL_QUERY);
@@ -31,8 +33,17 @@ class QrScannerComponent extends Component
 
         $this->qrCountry = Arr::get($params, 'qrCountry', '');
         $this->qrCompany = Arr::get($params, 'qrCompany', '');
+        $this->baseDomain = parse_url($url, PHP_URL_HOST);
 
         $this->isValid = resolve(ValidatedSignedUrl::class)($url);
+    }
+
+    public function clear()
+    {
+        $this->qrCodeUrl = '';
+        $this->qrCountry = '';
+        $this->qrCompany = '';
+        $this->baseDomain = '';
     }
 
     protected function extractUrl(string $url): string
@@ -43,8 +54,10 @@ class QrScannerComponent extends Component
 
         $params = empty($params) ? '' : '?'. http_build_query($params);
 
-        return parse_url($url, PHP_URL_SCHEME) .
-            '://' . parse_url($url, PHP_URL_HOST)
+        $schema = parse_url($url, PHP_URL_SCHEME) ? parse_url($url, PHP_URL_SCHEME) . '://' : '//';
+
+        return $schema
+            . parse_url($url, PHP_URL_HOST)
             . parse_url($url, PHP_URL_PATH)
             . $params;
     }

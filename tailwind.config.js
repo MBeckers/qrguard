@@ -7,7 +7,11 @@ export default {
     './app/Http/Livewire/**/*.php',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        invalid: '#D84141',  // Custom blue color
+      }
+    },
   },
   plugins: [],
 }
