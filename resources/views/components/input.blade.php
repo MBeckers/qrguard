@@ -11,6 +11,6 @@
     </label>
     <input
         {{ $attributes->except('class') }}
-        class="border-2 rounded-xl py-2 px-3"
+        class="border-2 rounded-xl py-2 px-3 dark:text-black"
     >
 </div>
