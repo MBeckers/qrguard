@@ -4,6 +4,6 @@
     </x-slot>
 
     <div class="m-8">
-        <livewire:qr-generator>
+        <livewire:qr-guard>
     </div>
 </x-layout>

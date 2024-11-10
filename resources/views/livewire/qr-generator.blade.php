@@ -1,4 +1,4 @@
-<div class="my-auto">
+<div class="my-auto">   
     <label for="url">Url:</label>
     <input
         class="border-2 rounded p-2"
