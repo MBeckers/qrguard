@@ -1,39 +1,36 @@
-<div class="my-auto">   
-    <label for="url">Url:</label>
-    <input
-        class="border-2 rounded p-2"
-        wire:model="url"
-        type="url"
-        id="url"
-        name="url"
-    >
+<div class="flex flex-col gap-4 my-auto">
+    <div class="flex flex-col gap-4 ">
+        <x-input
+            title="Your Url:"
+            wire:model="url"
+            type="url"
+            id="url"
+            name="url"
+        />
+        <x-input
+                title="Company Name:"
+                wire:model="company"
+                type="company"
+                id="company"
+                name="company"
+        />
+        <x-input
+                title="Country:"
+                wire:model="country"
+                type="country"
+                id="country"
+                name="country"
+    />
+    </div>
 
-    <label for="company">Company Name:</label>
-    <input
-        class="border-2 rounded p-2"
-        wire:model="company"
-        type="company"
-        id="company"
-        name="company"
-    >
-
-    <label for="Country">Country:</label>
-    <input
-        class="border-2 rounded p-2"
-        wire:model="country"
-        type="country"
-        id="country"
-        name="country"
-    >
-
-    <button
-        class="border-2 rounded p-2"
+    <x-button
+        class="mx-auto"
         wire:click="generateQrCode"
     >
-        Generate Url
-    </button>
+        Generate QR code
+    </x-button>
 
-    <div class="pt-10 w-screen">
+    <div>
         <img class="w-96 mx-auto" src="{{ $qrCode }}">
     </div>
 </div>

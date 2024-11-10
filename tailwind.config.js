@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         invalid: '#D84141',  // Custom blue color
+        primary: '#4778F5'
       }
     },
   },
